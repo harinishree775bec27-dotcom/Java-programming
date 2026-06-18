@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+    public Main(int amount) {
+        System.out.println("Recharge Amount: " + amount);
+        System.out.println();
+    }
+    public Main(int amount, int validity) {
+        System.out.println("Recharge Amount: " + amount);
+        System.out.println("Validity: " + validity + " Days");
+        System.out.println();
+    }
+    public Main(int amount, int validity, String dataPack) {
+        System.out.println("Recharge Amount: " + amount);
+        System.out.println("Validity: " + validity + " Days");
+        System.out.println("Data Pack: " + dataPack);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 3; i++) {
+            String line = sc.nextLine();
+            String[] parts = line.split(" ");
+            if (parts.length == 1) {
+                int am = Integer.parseInt(parts[0]);
+                new Main(am);
+            } 
+            else if (parts.length == 2) {
+                int am = Integer.parseInt(parts[0]);
+                int val = Integer.parseInt(parts[1]);
+                new Main(am, val);
+            } 
+            else if (parts.length == 3) {
+                int am = Integer.parseInt(parts[0]);
+                int val = Integer.parseInt(parts[1]);
+                String data = parts[2];
+                new Main(am, val, data);
+            }
+        }
+        sc.close();
+    }
+}
+
